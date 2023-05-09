@@ -2,10 +2,10 @@ const mongoose = require("../../database/index");
 
 const sensorValues = mongoose.Schema({
     temperatura:{
-        type: String
+        type: Number
     },
     umidade:{
-        type: String
+        type: Number
     },
     createAt:{
         type: Date,
