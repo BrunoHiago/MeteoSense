@@ -7,7 +7,16 @@ const sensorValues = mongoose.Schema({
     umidade:{
         type: Number
     },
-    createAt:{
+    velVento:{
+        type:Number
+    },
+    dirVento:{
+        type:String
+    },
+    qtdAgua:{
+        type:Number
+    },
+    createdAt:{
         type: Date,
         default: Date.now()
     }
