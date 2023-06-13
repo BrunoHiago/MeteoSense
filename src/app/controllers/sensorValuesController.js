@@ -85,11 +85,26 @@ const meanData = async (req, res) => {
 
 const last24h = async (req, res) => {
   const now = Date.now();
-  const last = now - (24 * 60 * 60*1000);
+  const last = now - 24 * 60 * 60 * 1000;
 
-  sensorValues.find({ createdAt: { $gte: last, $lte: now } }).then((response)=>{
-    res.status(200).send(response);
-  });
+  sensorValues
+    .find({ createdAt: { $gte: last, $lte: now } })
+    .then((response) => {
+      res.status(200).send(response);
+    });
+};
+
+const buscaData = async (req, res) => {
+  const start = new Date("2023-05-30");
+  const end = new Date("2023-05-31");
+
+  sensorValues.find(
+    { createdAt: { $gte: start, $lte: end } },
+  
+  ).then((result)=>{
+    console.log(result);
+    res.send(result);
+  })
 };
 
 module.exports = {
@@ -97,4 +112,5 @@ module.exports = {
   getValues,
   meanData,
   last24h,
+  buscaData
 };

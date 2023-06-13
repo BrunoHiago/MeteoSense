@@ -23,3 +23,6 @@ const sensorValues = mongoose.Schema({
 })
 
 module.exports = mongoose.model("sensorValues", sensorValues);
+
+
+
